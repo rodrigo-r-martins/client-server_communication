@@ -1,5 +1,0 @@
-127.0.0.1 - - [09/Mar/2020:13:05:51 -0400] "GET / HTTP/1.1" 404 705
-0:0:0:0:0:0:0:1 - - [09/Mar/2020:13:05:52 -0400] "GET /Project/Main.html HTTP/1.1" 200 692
-0:0:0:0:0:0:0:1 - - [09/Mar/2020:13:06:16 -0400] "GET /Project/Main?name=rodrigo&password=1234&newPassword=abc&reEnterPassword=abc&changePassword=Change+the+Password HTTP/1.1" 200 160
-0:0:0:0:0:0:0:1 - - [09/Mar/2020:13:07:08 -0400] "GET /Project/Main?name=Sara&password=Doe&newPassword=opo&reEnterPassword=opo&changePassword=Change+the+Password HTTP/1.1" 200 147
-0:0:0:0:0:0:0:1 - - [09/Mar/2020:13:07:27 -0400] "GET /Project/Main?name=David&password=Depaoli&newPassword=abc&reEnterPassword=cb&changePassword=Change+the+Password HTTP/1.1" 200 136

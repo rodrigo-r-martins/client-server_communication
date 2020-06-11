@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\Users\rmart\OneDrive\Desktop\Pace\CS610\Midterm Exam\Question4(Cookies)\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-256501830.index
-3973081645.index
-449384428.index
-2461093117.index
-3448392289.index
-1368140071.index
