@@ -1,0 +1,36 @@
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+public class MyServer {
+	public static void main(String[] args) throws IOException {
+		
+		try {
+			
+			ServerSocket serverSocket = new ServerSocket(1234);
+			Socket socket = serverSocket.accept();
+				
+			DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+			DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));			
+			
+			String inputMsg = "";
+			String outputMsg = "";
+				
+			while (inputMsg.equalsIgnoreCase("end")) {		// Enter "end" to finish the chat
+				
+				inputMsg = inputStream.readUTF();			// Getting message from client
+				System.out.println(inputMsg);				// Printing client message
+				
+				outputMsg = reader.readLine();				// Enter a message
+				outputStream.writeUTF(outputMsg);			// Printing the message
+				outputStream.flush();						
+			}
+			serverSocket.close();
+			socket.close();
+		
+		} catch (IOException e) {
+			System.out.println("Error: " + e);
+		}
+	}
+}

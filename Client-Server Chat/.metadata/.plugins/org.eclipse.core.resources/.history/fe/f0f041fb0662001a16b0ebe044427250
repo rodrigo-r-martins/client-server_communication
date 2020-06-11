@@ -1,0 +1,35 @@
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+public class MyServer {
+	public static void main(String[] args) throws IOException {
+		
+		System.out.println("Server ready");
+		
+		try {
+			
+			ServerSocket serverSocket = new ServerSocket(1234);
+			Socket socket = serverSocket.accept();
+				
+			DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+			DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+			BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+				
+			String inputMsg = "";
+			String outputMsg = "";
+				
+			while (!inputMsg.equals("Bye")) {
+				inputMsg = inputStream.readUTF();
+				System.out.println(inputMsg);
+				outputMsg = reader.readLine();
+				outputStream.writeUTF(outputMsg);
+				outputStream.flush();
+			}
+			socket.close();
+		
+		} catch (IOException e) {
+			System.out.println("Error: " + e);
+		}
+	}
+}

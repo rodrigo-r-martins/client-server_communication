@@ -1,0 +1,39 @@
+import java.io.*;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class MyClient {
+	public static void main(String[] args) throws IOException {
+		
+		System.out.println("Client ready");
+		
+		try {
+			
+			Socket socket = new Socket("localhost", 1234);
+			
+			DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+			Scanner input = new Scanner(new InputStreamReader(System.in));
+			DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+						
+			String inputMsg = "";
+			String outputMsg = "";
+			
+			while (true) {
+				outputMsg = input.nextLine();		// Enter a message
+				outputStream.writeUTF(outputMsg);	// Printing the entered message
+				
+				inputMsg = inputStream.readUTF();	// Getting message from server
+				System.out.println(inputMsg);		// Printing server message
+				
+				if (!inputMsg.equalsIgnoreCase("end")) {
+					break;
+				}
+			}
+			socket.close();
+			
+		} catch (IOException e) {
+			System.out.println("Error: " + e);
+		}
+	
+	}
+}

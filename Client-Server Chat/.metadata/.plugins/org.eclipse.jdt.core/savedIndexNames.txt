@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\rmart\OneDrive\Desktop\Pace\CS610\Midterm Exam\Question2(Client-Server-Chat)\.metadata\.plugins\org.eclipse.jdt.core
+789344348.index
+137624701.index
+2501520862.index

@@ -1,0 +1,36 @@
+import java.io.*;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class MyClient {
+	public static void main(String[] args) throws Exception {
+		
+		System.out.println("Client ready!");
+		
+		try {
+			
+			Socket socket = new Socket("localhost", 1235);
+			
+			DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+			DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+			BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+			
+			String inputMsg = "";
+			String outputMsg = "";
+			
+			while (!inputMsg.equals("end")) {		// Enter "end" to finish the chat
+				
+				outputMsg = input.readLine();				// Enter a message
+				outputStream.writeUTF(outputMsg);			// Printing the entered message
+				
+				inputMsg = inputStream.readUTF();			// Getting message from server
+				System.out.println(inputMsg);				// Printing server message
+			}
+			socket.close();
+			
+		} catch (Exception e) {
+			System.out.println("Error: " + e);
+		}
+	
+	}
+}
